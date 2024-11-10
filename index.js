@@ -12,15 +12,15 @@ const options = {
     definition: {
         openapi: "3.0.0",
         info: {
-            title: 'API - MongoDB',
+            title: 'API Node.js + MongoDB',
             version: '1.0.0',
-            description: `API utilizando MongoDB
+            description: `API utilizando Node.js, Express.js e MongoDB
             
             ### TD 02
             Disciplina: DAII 2024.02 Turma 02
             `,
             license: {
-                name: 'DAII',
+                name: 'Desenvolvimento de Aplicações II',
             },
             contact: {
                 name: 'Vinicius Ferreira Citadin',
