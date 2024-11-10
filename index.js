@@ -13,4 +13,4 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 
 app.listen(8080, function () {
-    console.log('Escutando na porta 8080, link: http://localhost:8080/')});
+    console.log('Executando na porta 8080, link: http://localhost:8080/')});
