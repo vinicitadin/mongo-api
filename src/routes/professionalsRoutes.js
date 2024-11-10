@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 router.get('/id/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        const docs = await Blog.find({ author: id });
+        const docs = await Blog.find({ _id: id });
         res.json(docs);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -49,7 +49,7 @@ router.get('/id/:id', async (req, res) => {
 router.get('/name/:name', async (req, res) => {
     const name = req.params.name;
     try {
-        const docs = await Blog.find({ author: name });
+        const docs = await Blog.find({ name: name });
         res.json(docs);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -71,13 +71,20 @@ router.post('/', async (req, res) => {
 // Substituir o cadastro de um profissional
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
-    const n_author = req.body;
+    const n_prof = req.body;
     try {
-      const updatedPost = await Blog.findByIdAndUpdate(id, { title: n_author.title, author: n_author.author }, { new: true });
-      console.log('Objeto Atualizado:', updatedPost);
-      res.json(updatedPost);
+        const updatedPost = await Blog.findByIdAndUpdate(id,
+            {
+                name: n_prof.name,
+                specialty: n_prof.specialty,
+                contact: n_prof.contact,
+                phone_number: n_prof.phone_number,
+                status: n_prof.status
+            });
+        console.log('Objeto Atualizado:', updatedPost);
+        res.json(updatedPost);
     } catch (err) {
-      res.status(500).json({ error: err.message });
+        res.status(500).json({ error: err.message });
     }
 });
 
@@ -85,11 +92,11 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const id = req.params.id;
     try {
-      const deletedPost = await Blog.findByIdAndDelete(id);
-      console.log('Objeto deletado:', deletedPost);
-      res.json(deletedPost);
+        const deletedPost = await Blog.findByIdAndDelete(id);
+        console.log('Objeto deletado:', deletedPost);
+        res.json(deletedPost);
     } catch (err) {
-      res.status(500).json({ error: err.message });
+        res.status(500).json({ error: err.message });
     }
 });
 
