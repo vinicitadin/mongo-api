@@ -1,17 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
+const db = require('../db/db');
+
+db.connect();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/professionals');
-
-mongoose.connection.on('connected', () => {
-    console.log("Conectado ao banco MongoDB");
-});
-
-mongoose.connection.on('error', (err) => {
-    console.error('Erro na conexão com o MongoDB:', err);
-});
 
 const blogSchema = new mongoose.Schema({
     name: String,
@@ -21,7 +15,7 @@ const blogSchema = new mongoose.Schema({
     status: Boolean
 });
 
-const Blog = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model('Professional', blogSchema);
 
 // Consultar todos profissionais no banco
 router.get('/', async (req, res) => {
