@@ -9,7 +9,7 @@ const blogSchema = new mongoose.Schema({
     name: String,
     pwd: String,
     status: String,
-    user: String
+    user: Boolean
 });
 
 const Blog = mongoose.model('Users', blogSchema);
