@@ -6,10 +6,10 @@ const mongoose = require('mongoose');
 const blogSchema = new mongoose.Schema({
     description: String,
     comments: String,
-    date: String
+    date: Date
 });
 
-const Blog = mongoose.model('Users', blogSchema);
+const Blog = mongoose.model('Events', blogSchema);
 
 // Consultar todos eventos no banco
 router.get('/', async (req, res) => {
