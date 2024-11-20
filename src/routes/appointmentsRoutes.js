@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const blogSchema = new mongoose.Schema({
     specialty: String,
     comments: String,
-    date: String,
+    date: Date,
     student: String,
     professional: String,
 });
