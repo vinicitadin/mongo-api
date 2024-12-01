@@ -8,8 +8,8 @@ const blogSchema = new mongoose.Schema({
     level: String,
     name: String,
     pwd: String,
-    status: String,
-    user: Boolean
+    status: Boolean,
+    user: String
 });
 
 const Blog = mongoose.model('Users', blogSchema);
